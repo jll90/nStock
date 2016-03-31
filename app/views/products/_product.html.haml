@@ -1,0 +1,4 @@
+.row
+	=link_to 'Ver Detalle', product
+	=link_to 'Editar', edit_product_path(product)
+	=link_to 'Eliminar', product, :method => :delete, :data => { :confirm => 'Estás Seguro?' }

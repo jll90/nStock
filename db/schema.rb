@@ -17,8 +17,22 @@ ActiveRecord::Schema.define(version: 20160328121208) do
   enable_extension "plpgsql"
 
   create_table "products", force: :cascade do |t|
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.integer  "on_storage"
+    t.integer  "on_shop"
+    t.integer  "purchase_price"
+    t.integer  "base_price"
+    t.integer  "after_tax_price"
+    t.integer  "wholesale_price"
+    t.integer  "retail_price"
+    t.string   "bag_code"
+    t.string   "shop_code"
+    t.text     "description"
+    t.string   "colors"
+    t.string   "sizes"
+    t.datetime "last_purchase_at"
+    t.boolean  "deleted"
+    t.datetime "created_at",       null: false
+    t.datetime "updated_at",       null: false
   end
 
 end

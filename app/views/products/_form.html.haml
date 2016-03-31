@@ -6,5 +6,30 @@
         - @product.errors.full_messages.each do |msg|
           %li= msg
 
-  .actions
-    = f.submit 'Save'
+  .row
+    .medium-3.columns
+      %span Cantidad
+      = f.text_field :on_storage, placeholder: 'cantidad en bodega'
+      = f.text_field :on_shop, placeholder: 'cantidad en tienda'
+
+    .medium-3.columns
+      %span Precio
+      = f.text_field :purchase_price, placeholder: 'precio compra'
+      = f.text_field :base_price, placeholder: 'precio base'
+      = f.text_field :after_tax_price, placeholder: 'precio con iva'
+      = f.text_field :wholesale_price, placeholder: 'precio al mayor'
+      = f.text_field :retail_price, placeholder: 'precio al menor'
+
+    .medium-3.columns
+      %span Detalle
+      = f.text_field :bag_code, placeholder: 'codigo bolsa'
+      = f.text_field :shop_code, placeholder: 'codigo tienda'
+      = f.text_area :description, placeholder: 'descripcion producto'
+      = f.text_field :colors, placeholder: 'colores'
+      = f.text_field :sizes, placeholder: 'tallas'
+    
+    .medium-3.columns
+      %span Fecha Ingreso
+      = f.date_field :last_purchase_at
+
+  = f.submit 'Guardar', class: 'button'

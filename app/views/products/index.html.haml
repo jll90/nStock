@@ -1,19 +1,13 @@
-%h1 Listing products
+%h1 Listado de Productos
 
-%table
-  %tbody
-    - @products.each do |product|
-      %tr
-        %td= link_to 'Show', product
-        %td= link_to 'Edit', edit_product_path(product)
-        %td= link_to 'Destroy', product, :method => :delete, :data => { :confirm => 'Are you sure?' }
-
-%br
-
-= link_to 'New Product', new_product_path
+.products-container
+	= render @products
 
 
-.button-group
-  %a.button One
-  %a.button Two
-  %a.button Three
+= link_to 'Ingresar Producto', new_product_path
+%span Actualizar Producto Existente
+
+/ .button-group
+/ 	%a.button One
+/ 	%a.button Two
+/ 	%a.button Three
