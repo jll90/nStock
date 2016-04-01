@@ -1,13 +1,3 @@
 %h1 Listado de Productos
 
-.products-container
-	= render @products
-
-
-= link_to 'Ingresar Producto', new_product_path
-%span Actualizar Producto Existente
-
-/ .button-group
-/ 	%a.button One
-/ 	%a.button Two
-/ 	%a.button Three
+= render @products

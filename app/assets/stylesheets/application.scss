@@ -16,3 +16,31 @@
 
  */
 
+.no-padding-right {
+	padding-right: 0;
+}
+
+.no-padding-left {
+	padding-left: 0;
+}
+
+form#new_product {
+	position: relative;
+	.date {
+
+		position: absolute;
+		right: 0;
+		top: -80px;
+		width: 360px;
+
+
+		* {
+			display: inline;
+		}
+
+		input {
+			width: 60%;
+			margin-left: 10px;
+		}
+	}
+}
