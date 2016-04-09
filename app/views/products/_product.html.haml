@@ -1,4 +1,54 @@
-.row
-	=link_to 'Ver Detalle', product
-	=link_to 'Editar', edit_product_path(product)
-	=link_to 'Eliminar', product, :method => :delete, :data => { :confirm => 'Estás Seguro?' }
+- after_tax_price = (product.base_price * 1.19).to_i
+- wholesale_price = (after_tax_price * 1.50).to_i
+- retail_price = (after_tax_price * 2).to_i
+
+.row.product
+	%h2= product.shop_code
+	.medium-10.columns
+		.medium-2.columns
+			%h5 Cantidad
+			.on_shop 
+				En bodega:
+				= product.on_storage
+			.on_store 
+				En tienda:
+				= product.on_shop
+
+		.medium-2.columns
+			%h5 Precios
+			.purchase_price
+				Compra: $
+				= product.purchase_price
+			.base_price
+				Base: $
+				= product.base_price
+			.after_tax_price
+				C/ IVA: $
+				= after_tax_price
+			.wholesale_price
+				Mayor: $
+				= wholesale_price
+			.retail_price
+				Menor: $
+				= retail_price
+
+		.medium-2.columns
+			%h5 Colores
+			= product.colors
+
+		.medium-2.columns
+			%h5 Tallas
+			= product.sizes
+
+		.medium-2.columns
+			%h5 Descripción
+			= product.description
+
+		.medium-2.columns
+
+	.medium-2.columns.buttons-pane
+		=link_to 'Ver Detalle', product, class: 'button'
+		=link_to 'Editar', edit_product_path(product), class: 'button'
+		=link_to 'Eliminar', product, :method => :delete, :data => { :confirm => 'Estás Seguro?' }, class: 'alert button'
+
+%hr
