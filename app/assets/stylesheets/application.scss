@@ -42,5 +42,9 @@ form#new_product {
 			width: 60%;
 			margin-left: 10px;
 		}
+
+		input[type='submit'] {
+			background: red;
+		}
 	}
 }

@@ -20,9 +20,9 @@ $(function(){ $(document).foundation(); });
 $(document).ready(function(){
 	
 	$basePrice = $("#product_base_price");
-	$afterTaxPrice = $("#product_after_tax_price");
-	$wholesalePrice = $("#product_wholesale_price");
-	$retailPrice = $("#product_retail_price");
+	// $afterTaxPrice = $("#product_after_tax_price");
+	// $wholesalePrice = $("#product_wholesale_price");
+	// $retailPrice = $("#product_retail_price");
 
 
 	$basePrice.on('keyup', function(){
@@ -30,7 +30,7 @@ $(document).ready(function(){
 		basePrice = $(this).val();
 		if ( isNaN(parseInt(basePrice)) && (basePrice !== '') ){
 			alert("Ingresa un numero valido");
-		}  else {
+		}  /*else {
 
 			afterTaxPrice = basePrice * 1.19;
 			wholesalePrice = afterTaxPrice * 1.50;
@@ -40,6 +40,6 @@ $(document).ready(function(){
 			$wholesalePrice.val(wholesalePrice);
 			$retailPrice.val(retailPrice);
 			
-		}
+		}*/
 	});
 });

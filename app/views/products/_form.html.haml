@@ -9,9 +9,18 @@
   .row
     .date
       %h5 Fecha Ingreso
-      = f.date_field :last_purchase_at
+      = f.date_field :last_purchase_at, value:  Time.now.strftime("%Y-%m-%d")
 
-    .medium-6.columns
+    .medium-6.columns.medium-offset-3
+
+      %h5 Códigos
+      .medium-6.columns.no-padding-left
+        .input-group{style: 'margin-bottom: 0px;'}
+          %span.input-group-label JV
+          = f.text_field :shop_code, placeholder: 'Código tienda', class: 'input-group-field'
+      .medium-6.columns.no-padding-right
+        = f.text_field :bag_code, placeholder: 'Código bolsa', style: 'height: 40px;'
+
       %h5 Cantidad
       .medium-6.columns.no-padding-left
         = f.text_field :on_storage, placeholder: 'En bodega'
@@ -21,33 +30,26 @@
       %h5 Precio
       .medium-6.columns.no-padding-left
         = f.text_field :purchase_price, placeholder: 'Compra'
+      .medium-6.columns.no-padding-right
         = f.text_field :base_price, placeholder: 'Base'
-        = f.text_field :wholesale_price, placeholder: 'Al mayor'
-      .medium-6.columns.no-padding-right{style: 'margin-top: 55px'}
-        = f.text_field :after_tax_price, placeholder: 'Con IVA'
-        = f.text_field :retail_price, placeholder: 'Al menor'
 
-      
-
-    .medium-6.columns
       %h5 Descripción
       = f.text_area :description, placeholder: 'Descripción producto', rows: 5
       
+      
 
+      %h5 Otros
       .medium-6.columns.no-padding-left
-        %h5 Códigos
-        .input-group
-          %span.input-group-label JV
-          = f.text_field :shop_code, placeholder: 'Código tienda', class: 'input-group-field'
-        = f.text_field :bag_code, placeholder: 'Código bolsa'
-      
-      .medium-6.columns.no-padding-right
-        %h5 Otros
-        = f.text_field :colors, placeholder: 'Colores'
         = f.text_field :sizes, placeholder: 'Tallas'
-      
-  .row
-    .medium-6.columns.medium-offset-3
+      .medium-6.columns.no-padding-right
+        = f.text_field :colors, placeholder: 'Colores'
+
       = f.submit 'Guardar', class: 'button expanded large'
+        
+    .medium-3.columns 
+    / keeps layout aligned
+      
+  
+      
     
     
