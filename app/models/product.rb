@@ -1,9 +1,11 @@
 class Product < ActiveRecord::Base
 
+	default_scope {where(deleted: false)}
+
+	after_initialize :set_delete_false
 	before_save :append_brand_suffix
 
-	# validate :correct_date_format
-	# validate :pricing_scheme
+	validate :delete_false_status, on: :create
 
 	validates :on_storage, presence: true, numericality: { greater_than_or_equal_to: 0 }
 	validates :on_shop, presence: true, numericality: { greater_than_or_equal_to: 0 }
@@ -21,6 +23,14 @@ class Product < ActiveRecord::Base
 
 		def append_brand_suffix
 			self.shop_code = "JV" + self.shop_code
+		end
+
+		def set_delete_false
+			self.deleted = false
+		end
+
+		def delete_false_status
+			errors.add(:product, "product cannot be marked for deletion upon creation") unless self.deleted == false
 		end
 
 		# def pricing_scheme

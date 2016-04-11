@@ -77,4 +77,9 @@ class ProductTest < ActiveSupport::TestCase
   	assert_not @product.valid?
   end
 
+  test "must save as false" do
+    @product.deleted = true
+    assert_not @product.valid?
+  end
+
 end
