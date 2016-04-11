@@ -9,6 +9,6 @@ module SessionsHelper
 	end
 
 	def log_out
-		session.delete[:logged_in]
+		session.delete(:logged_in)
 	end
 end

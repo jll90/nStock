@@ -1,0 +1,8 @@
+.medium-4.columns.medium-offset-4
+	%h1 Iniciar Sesión
+	= form_for(:session, url: login_path) do |f|
+		= f.text_field :username, placeholder: 'Nombre de Usuario'
+		= f.password_field :password, placeholder: 'Contraseña'
+
+		= f.submit 'Iniciar Sesión', class: 'button login-button'
+.medium-4.columns

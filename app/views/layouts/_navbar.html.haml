@@ -1,11 +1,14 @@
-.top-bar
-  .top-bar-left
-    %ul.dropdown.menu{"data-dropdown-menu" => ""}
-      %li.menu-text
-        = link_to "Listado de Productos", products_path
-      %li
-        = link_to "Ingresar Producto", new_product_path
-      %li
-        = link_to "Generar Venta"
-      %li
-        = link_to "Histórico Ventas"
+- if logged_in?
+  .top-bar
+    .top-bar-left
+      %ul.dropdown.menu{"data-dropdown-menu" => ""}
+        %li.menu-text
+          = link_to "Listado de Productos", products_path
+        %li
+          = link_to "Ingresar Producto", new_product_path
+        %li
+          = link_to "Generar Venta"
+        %li
+          = link_to "Histórico Ventas"
+        %li
+          =link_to "Cerrar Sesión", logout_path, method: :delete

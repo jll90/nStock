@@ -10,7 +10,7 @@ class SessionsController < ApplicationController
 			log_in
 			redirect_to products_path
 		else
-			flash.now[:error] = 'Nombre de usuario o contraseña incorrecto'
+			flash[:alert] = 'Nombre de usuario o contraseña incorrecto'
 			redirect_to login_url
 		end
 	end

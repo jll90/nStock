@@ -12,6 +12,8 @@
     = csrf_meta_tag
 
   %body
+    - flash.each do |message_type, message|
+      %div{class: "callout #{message_type}"}=message
     = render 'layouts/navbar'
     .row.main-row
       .medium-12.columns
