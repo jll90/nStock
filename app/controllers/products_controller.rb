@@ -27,7 +27,7 @@ class ProductsController < ApplicationController
   def create
     @product = Product.new(product_params)
     if @product.save
-      flash[:success] = "Producto creado satisfactoriamente"
+      flash[:success] = "Producto creado satisfactoriamente."
       redirect_to products_path
     else
       render :new
@@ -51,11 +51,9 @@ class ProductsController < ApplicationController
   # DELETE /products/1
   # DELETE /products/1.json
   def destroy
-    @product.destroy
-    respond_to do |format|
-      format.html { redirect_to products_url, notice: 'Product was successfully destroyed.' }
-      format.json { head :no_content }
-    end
+    @product.update(deleted: true)
+    flash[:alert] = "Producto eliminado satisfactoriamente."
+    redirect_to products_path
   end
 
   private
