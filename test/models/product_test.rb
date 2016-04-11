@@ -17,8 +17,14 @@ class ProductTest < ActiveSupport::TestCase
 	  )
   end
 
+
+
   test "product is valid" do
   	assert @product.valid?
+  end
+
+  test "deleted inits as false" do
+    assert_equal @product.deleted, false
   end
 
   test "on storage must be a positive number" do
